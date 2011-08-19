@@ -1,0 +1,18 @@
+name: CreativeWorld
+main: uk.co.oliwali.CreativeWorld.CreativeWorld
+author: oliverw92
+version: 0.1.1
+softdepend: [PermissionsEx,HawkEye]
+description: MinecraftCC Creative World Plugin
+commands:
+  creativerights:
+    description: Grant a user creative rights
+    aliases: cr
+    usage: /<command> <user>
+  delcreativerights:
+    description: Remove creative rights from a user
+    aliases: rcr
+    usage: /<command> <user>
+  creativerender:
+    description: Forces a render of the creative world map
+    usage: /<command>
