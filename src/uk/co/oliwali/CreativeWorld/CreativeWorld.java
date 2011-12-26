@@ -13,7 +13,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import ru.tehkode.permissions.PermissionUser;
-import uk.co.oliwali.CreativeWorld.listeners.CWPlayerListener;
+import uk.co.oliwali.CreativeWorld.listeners.CWBlockListener;
 import uk.co.oliwali.CreativeWorld.listeners.CWWorldListener;
 
 public class CreativeWorld extends JavaPlugin {
@@ -23,7 +23,7 @@ public class CreativeWorld extends JavaPlugin {
 	public Config config;
 	public static Server server;
 	public static MapGenerator generator;
-	private CWPlayerListener playerListener;
+	private CWBlockListener blockListener;
 	private CWWorldListener worldListener;
 
 	public void onDisable() {
@@ -37,7 +37,7 @@ public class CreativeWorld extends JavaPlugin {
 		server = getServer();
 		name = this.getDescription().getName();
         version = this.getDescription().getVersion();
-        playerListener = new CWPlayerListener();
+        blockListener = new CWBlockListener();
         worldListener = new CWWorldListener();
         Util.info("Preparing Permissions for CreativeRights...");
         try {
@@ -55,7 +55,7 @@ public class CreativeWorld extends JavaPlugin {
 			timer.scheduleAtFixedRate(generator, 5000, Config.MapGenPeriod * 1000);
     	}
     	
-    	pm.registerEvent(Type.PLAYER_INTERACT, playerListener, Event.Priority.Lowest, this);
+    	pm.registerEvent(Type.BLOCK_BREAK, blockListener, Event.Priority.Lowest, this);
     	pm.registerEvent(Type.CHUNK_LOAD, worldListener, Event.Priority.Highest, this);
 
 		Util.info("Version " + version + " enabled!");

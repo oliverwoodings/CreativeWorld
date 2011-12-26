@@ -1,7 +1,7 @@
 name: CreativeWorld
 main: uk.co.oliwali.CreativeWorld.CreativeWorld
 author: oliverw92
-version: 0.1.1
+version: 0.1.2
 softdepend: [PermissionsEx,HawkEye]
 description: MinecraftCC Creative World Plugin
 commands:
